@@ -1,0 +1,10 @@
+Things to check for the parsing:
+
+- 1 Player/starting position
+- 1 exit
+- at least one collectible
+- only the 5 characters acceptable: 0, 1, C, E, P
+- the map must be rectangular - same size for all the lines
+- only walls in all the surrounding
+- valid path for player to the exit
+
