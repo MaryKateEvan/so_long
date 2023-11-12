@@ -6,13 +6,13 @@
 #    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 15:07:21 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/12 17:04:59 by mevangel         ###   ########.fr        #
+#    Updated: 2023/11/12 17:06:46 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-CC			=	gcc
+CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 MLXFLAGS	=	-lglfw -L "$(HOME)/.brew/opt/glfw/lib/"
 
