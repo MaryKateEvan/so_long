@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_gnl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 15:46:47 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:09:12 by mevangel         ###   ########.fr       */
+/*   Created: 2023/11/16 11:02:10 by mevangel          #+#    #+#             */
+/*   Updated: 2023/11/16 11:07:52 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin_gnl(char *stash, char *buffer)
 {
-	if (!s)
+	char	*joined;
+	int		i;
+	int		j;
+
+	joined = ft_calloc(ft_strlen(stash) + ft_strlen(buffer) + 1, 1);
+	if (!joined)
 		return (NULL);
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == (unsigned char)c)
-		return ((char *)s);
-	return (0);
+	i = -1;
+	j = -1;
+	while (stash[++i] != '\0')
+		joined[i] = stash[i];
+	while (buffer[++j] != '\0')
+		joined[i + j] = buffer[j];
+	free(stash);
+	return (joined);
 }

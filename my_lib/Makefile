@@ -6,7 +6,7 @@
 #    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 15:04:14 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/10 10:45:56 by mevangel         ###   ########.fr        #
+#    Updated: 2023/11/16 11:15:51 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,10 @@ SRCS	:=	ft_isalpha.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-			ft_lstmap.c
+			ft_lstmap.c \
+			ft_read_line.c \
+			ft_strjoin_gnl.c \
+			get_next_line.c
 
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)%.o)
 

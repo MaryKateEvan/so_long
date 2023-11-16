@@ -8,3 +8,5 @@ Things to check for the parsing:
 - only walls in all the surrounding
 - valid path for player to the exit
 
+
+I run as: ./so_long maps/map1.ber

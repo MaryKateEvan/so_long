@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 15:46:47 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:09:12 by mevangel         ###   ########.fr       */
+/*   Created: 2023/11/16 10:47:03 by mevangel          #+#    #+#             */
+/*   Updated: 2023/11/16 11:12:23 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_read_line(char **line, int fd)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
+	char	*buffer;
+	char	ret;
+	int		i;
+	char	c;
+
+	i = 0;
+	buffer = (char *)malloc(4200);
+	if (!buffer)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		ft_putstr_fd("malloc failed", 2);
+		return (0);
 	}
-	if (*s == (unsigned char)c)
-		return ((char *)s);
-	return (0);
+	ret = read(fd, &c, 1);
+	while (ret > 0 && c != '\n' && c != '\0')
+	{
+		buffer[i++] = c;
+		ret = read(fd, &c, 1);
+	}
+	buffer[i] = '\n';
+	buffer[i + 1] = '\0';
+	*line = ft_strdup(buffer);
+	free(buffer);
+	return (i);
 }
