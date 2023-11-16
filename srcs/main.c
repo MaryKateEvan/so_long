@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:33 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 17:32:26 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/16 23:36:59 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,19 @@ void	open_map(char *arg2, t_game *game)
 		ft_error_exit("failed to open the file", 1);
 	init_struct_values(game);
 	line = get_next_line(map_fd);
-	printf("strlen returns: %lu\n", ft_strlen(line));
+	game->width = ft_strlen(line) - 1;
+	// printf("strlen returns: %lu\n", ft_strlen(line));
 	while (line)
 	{
 		game->height++;
-		game->width = ft_strlen(line) - 1;
 		free(line);
 		line = get_next_line(map_fd);
+		if (ft_strlen(line) - 1 != game->width)
+		{
+			free(line);
+			ft_error_exit("Map is not rectangular.", 0);
+		}
+		//malloc for each line to the 2d array
 	}
 	printf("height i got is: %d\n", game->height);
 	printf("width i got is: %d\n", game->width);
