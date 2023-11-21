@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/21 17:51:51 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:11:06 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,24 @@
 
 # define RED "\033[1;31m"
 
+typedef struct s_coords
+{
+	int	y;
+	int	x;
+}	t_coords;
+
 typedef struct s_game
 {
 	// char	**map;
 	char	map[10000];
 	int		height;
 	int		width;
+	int		coins;
+	int		player_idx;
+	int		exit_idx;
 }	t_game;
+
+
 
 
 void	ft_error_exit(char *perr_msg, int err_code);

@@ -6,43 +6,65 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:02:30 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/21 19:15:38 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:31:59 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 #include "../my_lib/libft.h"
 
-static void	ft_check_characters(char *map)
+static void	ft_find_p_e_c(t_game *game, char *map)
 {
 	int	p;
 	int	e;
-	int	c;
 
 	p = 0;
 	e = 0;
-	c = 0;
+	game->coins = 0;
 	while (*(map++) != '\0')
 	{
 		while (*map != '\n' && *map != '\0')
 		{
-			if (!(*map == '0' || *map == '1' || *map == 'C' || *map == 'E' 
-					|| *map == 'P'))
-				ft_error_exit("non acceptable character inside the map.", 0);
 			if (*map == 'P')
 				p++;
 			else if (*map == 'E')
 				e++;
 			else if (*map == 'C')
-				c++;
+				game->coins++;
 			map++;
 		}
 	}
-	if (p != 1 || e != 1 || c < 1)
-		ft_error_exit("invalid map", 0);
+	if (p != 1)
+		ft_error_exit("the game must have only one player starting position", 0);
+	if (e != 1)
+		ft_error_exit("the game must have only one exit", 0);
+	if (game->coins < 1)
+		ft_error_exit("the game must have at least one collectible", 0);
 }
 
-// void	ft_num_pec()
+static void	ft_check_characters(t_game *game)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = game->map;
+	while (tmp[i++] != '\0')
+	{
+		while (tmp[i] != '\n' && tmp[i] != '\0')
+		{
+			if (!(tmp[i] == '0' || tmp[i] == '1' || tmp[i] == 'C' || 
+					tmp[i] == 'E' || tmp[i] == 'P'))
+				ft_error_exit("non acceptable character inside the map.", 0);
+			if (tmp[i] == 'P')
+				game->player_idx = i;
+			if (tmp[i] == 'E')
+				game->exit_idx = i;
+			i++;
+		}
+	}
+	ft_find_p_e_c(game, game->map);
+}
 
 static void	ft_check_walls(t_game *game)
 {
@@ -96,9 +118,9 @@ void	ft_check_given_map(int map_fd, t_game *game)
 		ft_strlcat(game->map, line, 10000);
 	}
 	free(line);
-	ft_check_characters(game->map);
+	ft_check_characters(game);
 	ft_check_walls(game);
-	ft_check_player_paths()
+	// ft_check_player_paths()
 }
 
 
