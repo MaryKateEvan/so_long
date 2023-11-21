@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/21 21:11:06 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:29:49 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ typedef struct s_game
 	int		player_idx;
 	int		exit_idx;
 }	t_game;
-
-
-
 
 void	ft_error_exit(char *perr_msg, int err_code);
 void	ft_check_given_map(int map_fd, t_game *game);

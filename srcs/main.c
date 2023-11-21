@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:38:25 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/21 21:33:25 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:53:04 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_error_exit(char *perr_msg, int exit_value)
 	else
 		exit (EXIT_SUCCESS);
 }
+
+
 
 int	main(int argc, char **argv)
 {
