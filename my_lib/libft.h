@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:33:36 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:16:19 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:34:50 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
+int		ft_linelen(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -59,8 +60,10 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_free_2darr(char **array);
 int		ft_read_line(char **line, int fd);
 char	*ft_strjoin_gnl(char *stash, char *buffer);
+char	*ft_strjoin_free_both(char *s1, char *s2);
 char	*get_next_line(int fd);
 
 t_list	*ft_lstnew(void *content);

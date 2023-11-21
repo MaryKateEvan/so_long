@@ -6,7 +6,7 @@
 #    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 15:07:21 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/13 15:23:14 by mevangel         ###   ########.fr        #
+#    Updated: 2023/11/21 17:40:30 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ WHITE	=	\033[0m
 SRC_DIR	=	./srcs/
 OBJ_DIR	=	./objs/
 
-SRC		=	$(SRC_DIR)main.c
+SRC		=	$(SRC_DIR)main.c \
+			$(SRC_DIR)parsing.c
 OBJ		=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIB		=	my_lib/my_lib.a
 MLX42	=	MLX42/build/libmlx42.a

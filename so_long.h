@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:19:28 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:51:51 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h> //for the open function
+# include <stdio.h> //for the perror function
+# include <stdbool.h>
 
 # include "my_lib/libft.h"
 # include "MLX42/include/MLX42/MLX42.h"
@@ -23,11 +25,14 @@
 
 typedef struct s_game
 {
-	int map_height;
-	int map_width;
+	// char	**map;
+	char	map[10000];
+	int		height;
+	int		width;
 }	t_game;
 
 
-void	ft_error_exit(int err_code);
+void	ft_error_exit(char *perr_msg, int err_code);
+void	ft_check_given_map(int map_fd, t_game *game);
 
 #endif //SO_LONG_H
