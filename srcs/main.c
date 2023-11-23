@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:38:25 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/21 21:53:04 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/23 04:20:40 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,21 @@ int	main(int argc, char **argv)
 	ft_check_given_map(map_fd, &game);
 	close(map_fd);
 	// i reach here if the map is valid:
-	printf("What I gathered until now is:\n");
-	printf("map height is: %d\n", game.height);
-	printf("map width is: %d\n", game.width);
-	printf("number of coins to gather: %d\n", game.coins);
-	printf("the index of the player is: %d\n", game.player_idx);
-	printf("the index of the exit is: %d\n", game.exit_idx);
+	game.mlx = mlx_init(game.width * SIZE, game.height * SIZE, "Ho ho ho!", false); //don't forget to check what the "true" here influences
+	if (!game.mlx)
+		ft_error_exit("mlx_init failed", 1);
+	//mlx_set_window_limit(game.mlx, game.width * SIZE, game.height * SIZE, game.width * SIZE + 1, game.height * SIZE + 1);
+	//  |->this doesn't allow me to change the size of the window if i do it like this. 
+	ft_initialize_game(&game);
+	// mlx_loop_hook    or    mlx_key_hook();
+	mlx_loop(game.mlx);
+	mlx_terminate(game.mlx);
+	// printf("What I gathered until now is:\n");
+	// printf("map height is: %d\n", game.height);
+	// printf("map width is: %d\n", game.width);
+	// printf("number of coins to gather: %d\n", game.coins);
+	// printf("the index of the player is: %d\n", game.player_idx);
+	// printf("the index of the exit is: %d\n", game.exit_idx);
 	// printf("the map i got is: %s\n", game.map);
 
 	return (EXIT_SUCCESS);

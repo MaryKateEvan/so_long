@@ -6,7 +6,7 @@
 #    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 15:07:21 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/21 17:40:30 by mevangel         ###   ########.fr        #
+#    Updated: 2023/11/23 02:26:37 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC_DIR	=	./srcs/
 OBJ_DIR	=	./objs/
 
 SRC		=	$(SRC_DIR)main.c \
-			$(SRC_DIR)parsing.c
+			$(SRC_DIR)parsing.c \
+			$(SRC_DIR)init_game.c
 OBJ		=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIB		=	my_lib/my_lib.a
 MLX42	=	MLX42/build/libmlx42.a
