@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:20:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/23 04:02:05 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/23 04:32:07 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	ft_fill_window(t_game *game, char **map)
 void	ft_initialize_game(t_game *game)
 {
 	char	**map;
-	
-	
+
 	//first I create the textures:
 	game->santa = mlx_load_png("images/santa.png");
 	game->chimney = mlx_load_png("images/chimney.png");
