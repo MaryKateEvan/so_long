@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/23 03:46:38 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/27 00:12:02 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_game
 {
 	// variables for the map:
 	char			map[10000];
-	char			**array;
+	// char			**array;
 	int				height;
 	int				width;
 	int				coins;
@@ -43,16 +43,16 @@ typedef struct s_game
 	//variables for the mlx and game:
 	mlx_t			*mlx;
 	mlx_texture_t	*santa;
-	mlx_texture_t	*chimney;
-	mlx_texture_t	*cookie;
+	mlx_texture_t	*slay;
+	mlx_texture_t	*gifts;
 	mlx_texture_t	*tree;
-	mlx_texture_t	*floor;
+	mlx_texture_t	*snow;
 	//images:
 	mlx_image_t		*img_tree;
-	mlx_image_t		*img_floor;
+	mlx_image_t		*img_snow;
 	mlx_image_t		*img_santa;
-	mlx_image_t		*img_cookie;
-	mlx_image_t		*img_chimney;
+	mlx_image_t		*img_gifts;
+	mlx_image_t		*img_slay;
 }	t_game;
 
 void	ft_error_exit(char *perr_msg, int err_code);
