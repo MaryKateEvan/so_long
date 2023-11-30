@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:02:30 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/23 03:03:41 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:58:56 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static void	ft_flood_fill(char *map, int idx, int *coins, int *exit)
 	if (map[idx] == 'E')
 	{
 		(*exit)++;
-		return ; //with this line i save the case the exit is before a collectible, but i have problem with exit says unreachable though it is
+		// return ; //with this line i save the case the exit is before a collectible, but i have problem with exit says unreachable though it is
 	}
 	if (map[idx] == 'C')
 		(*coins)++;

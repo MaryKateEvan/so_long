@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:20:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/23 04:32:07 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/27 00:14:29 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ void	ft_fill_window(t_game *game, char **map)
 		x = 0;
 		while (x < game->width)
 		{
-			mlx_image_to_window(game->mlx, game->img_floor, x * SIZE, y * SIZE);
+			mlx_image_to_window(game->mlx, game->img_snow, x * SIZE, y * SIZE);
 			if (map[y][x] == '1')
 				mlx_image_to_window(game->mlx, game->img_tree, x * SIZE, y * SIZE);
 			else if (map[y][x] == 'P')
 				mlx_image_to_window(game->mlx, game->img_santa, x * SIZE, y * SIZE);
 			else if (map[y][x] == 'C')
-				mlx_image_to_window(game->mlx, game->img_cookie, x * SIZE, y * SIZE);
+				mlx_image_to_window(game->mlx, game->img_gifts, x * SIZE, y * SIZE);
 			else if (map[y][x] == 'E')
-				mlx_image_to_window(game->mlx, game->img_chimney, x * SIZE, y * SIZE);
+				mlx_image_to_window(game->mlx, game->img_slay, x * SIZE, y * SIZE);
 			x++;
 		}
 		y++;
@@ -45,16 +45,16 @@ void	ft_initialize_game(t_game *game)
 
 	//first I create the textures:
 	game->santa = mlx_load_png("images/santa.png");
-	game->chimney = mlx_load_png("images/chimney.png");
-	game->cookie = mlx_load_png("images/cookie.png");
+	game->slay = mlx_load_png("images/slay.png");
+	game->gifts = mlx_load_png("images/gifts.png");
 	game->tree = mlx_load_png("images/tree.png");
-	game->floor = mlx_load_png("images/floor.png");
+	game->snow = mlx_load_png("images/snow.png");
 	//then i turn the textures to images:
 	game->img_tree = mlx_texture_to_image(game->mlx, game->tree);
-	game->img_floor = mlx_texture_to_image(game->mlx, game->floor);
+	game->img_snow = mlx_texture_to_image(game->mlx, game->snow);
 	game->img_santa = mlx_texture_to_image(game->mlx, game->santa);
-	game->img_cookie = mlx_texture_to_image(game->mlx, game->cookie);
-	game->img_chimney = mlx_texture_to_image(game->mlx, game->chimney);
+	game->img_gifts = mlx_texture_to_image(game->mlx, game->gifts);
+	game->img_slay = mlx_texture_to_image(game->mlx, game->slay);
 	
 	map = ft_split(game->map, '\n');
 	if (!map)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:38:25 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/23 04:20:40 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:26:42 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int argc, char **argv)
 		ft_error_exit("no such file to open", 1);
 	ft_check_given_map(map_fd, &game);
 	close(map_fd);
+	if (game.width > 24 || game.height > 12)
+		ft_error_exit("map is too big!", 0);
 	// i reach here if the map is valid:
 	game.mlx = mlx_init(game.width * SIZE, game.height * SIZE, "Ho ho ho!", false); //don't forget to check what the "true" here influences
 	if (!game.mlx)
