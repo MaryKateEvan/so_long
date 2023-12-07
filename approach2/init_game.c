@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:20:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 23:44:26 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/08 00:53:48 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void	ft_update_player(t_game *game, int x_to, int y_to, char look)
 	game->p_y = y_to;
 	mlx_image_to_window(game->mlx, game->snow, game->p_x * SIZE, 
 		game->p_y * SIZE);
-	if (look == 'W' || look == 'S')
+	if (look == 'W')
+		mlx_image_to_window(game->mlx, game->santa_back, game->p_x * SIZE, 
+			game->p_y * SIZE);
+	else if (look == 'S')
 		mlx_image_to_window(game->mlx, game->santa, game->p_x * SIZE, 
 			game->p_y * SIZE);
 	else if (look == 'A')
@@ -94,7 +97,7 @@ void	ft_do_move(t_game *game, int x_to, int y_to, int look)
 	else if (game->twod[y_to][x_to] == 'E' && game->coins == 0)
 	{
 		ft_update_player(game, x_to, y_to, look);
-		ft_printf("Congrats! You helped Santa collect all the gifts! \033[0;32mYOU WIN!!\033[37m\n");
+		ft_printf("Congrats! You helped Santa collect all the gifts! \033[0;32mYOU WON!!\033[37m\n");
 		ft_free_2darr(game->twod);
 		mlx_close_window(game->mlx);
 		mlx_terminate(game->mlx);
@@ -119,8 +122,10 @@ void	ft_my_keyhook(mlx_key_data_t keydata, void *param)
 	game = param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 	{
-		ft_printf("You failed to help Santa! \033[31mYOU LOSE!\033[37m\n");
+		ft_printf("You didn't help Santa! :( \n");
 		mlx_close_window(game->mlx);
+		mlx_terminate(game->mlx);
+		exit(EXIT_SUCCESS);
 	}
 	if ((keydata.key == MLX_KEY_W) || (keydata.key == MLX_KEY_UP))
 		ft_do_move(game, game->p_x, game->p_y - 1, 'W');
@@ -139,12 +144,14 @@ void	ft_initialize_game(t_game *game)
 	game->twod = ft_split(game->map, '\n');
 	if (!game->twod)
 		ft_error_exit("malloc for split failed.", 1);
+	tmp = mlx_load_png("images/santa.png");
+	game->santa = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/santa_left.png");
 	game->santa_left = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/santa_right.png");
 	game->santa_right = mlx_texture_to_image(game->mlx, tmp);
-	tmp = mlx_load_png("images/santa.png");
-	game->santa = mlx_texture_to_image(game->mlx, tmp);
+	tmp = mlx_load_png("images/santa_back.png");
+	game->santa_back = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/slay.png");
 	game->slay = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/gifts.png");
