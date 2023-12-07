@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:38:25 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 18:33:26 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:28:07 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	close(map_fd);
 	if (game.width > 24 || game.height > 12)
 		ft_error_exit("map is too big!", 0);
+	game.step = ft_linelen(game.map) + 1;
 	// i reach here if the map is valid:
 	game.mlx = mlx_init(game.width * SIZE, game.height * SIZE, 
 		"Help Santa collect all the gifts!!", false); //don't forget to check what the "true" here influences

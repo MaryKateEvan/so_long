@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:20:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 18:57:08 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:32:20 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,11 @@ static void	ft_fill_window(t_game *game)
 	}
 }
 
-void	ft_update_player(t_game *game, int x_to, int y_to)
+void	ft_print_moves(t_game *game)
 {
 	static int	moves = 0;
 	char		*str_moves;
 
-	mlx_image_to_window(game->mlx, game->snow, game->p_x * SIZE, 
-		game->p_y * SIZE);
-	game->twod[game->p_y][game->p_x] = '0';
-	game->twod[y_to][x_to] = 'P';
-	game->p_x = x_to;
-	game->p_y = y_to;
-	mlx_image_to_window(game->mlx, game->snow, game->p_x * SIZE, 
-		game->p_y * SIZE);
-	mlx_image_to_window(game->mlx, game->santa, game->p_x * SIZE, 
-		game->p_y * SIZE);
 	mlx_image_to_window(game->mlx, game->box_l, (game->width - 2) * SIZE, 
 		(game->height - 1) * SIZE);
 	mlx_image_to_window(game->mlx, game->box_r, (game->width - 1) * SIZE, 
@@ -68,20 +58,42 @@ void	ft_update_player(t_game *game, int x_to, int y_to)
 	free(str_moves);
 }
 
-void	ft_do_move(t_game *game, int x_to, int y_to)
+void	ft_update_player(t_game *game, int x_to, int y_to, char look)
+{
+	mlx_image_to_window(game->mlx, game->snow, game->p_x * SIZE, 
+		game->p_y * SIZE);
+	game->twod[game->p_y][game->p_x] = '0';
+	game->twod[y_to][x_to] = 'P';
+	game->p_x = x_to;
+	game->p_y = y_to;
+	mlx_image_to_window(game->mlx, game->snow, game->p_x * SIZE, 
+		game->p_y * SIZE);
+	if (look == 'W' || look == 'S')
+		mlx_image_to_window(game->mlx, game->santa, game->p_x * SIZE, 
+			game->p_y * SIZE);
+	else if (look == 'A')
+		mlx_image_to_window(game->mlx, game->santa_left, game->p_x * SIZE, 
+			game->p_y * SIZE);
+	else if (look == 'D')
+		mlx_image_to_window(game->mlx, game->santa_right, game->p_x * SIZE, 
+			game->p_y * SIZE);
+	ft_print_moves(game);
+}
+
+void	ft_do_move(t_game *game, int x_to, int y_to, int look)
 {
 	if (game->twod[y_to][x_to] == '0')
 	{
-		ft_update_player(game, x_to, y_to);
+		ft_update_player(game, x_to, y_to, look);
 	}
 	else if (game->twod[y_to][x_to] == 'C')
 	{
 		game->coins--;
-		ft_update_player(game, x_to, y_to);
+		ft_update_player(game, x_to, y_to, look);
 	}
 	else if (game->twod[y_to][x_to] == 'E' && game->coins == 0)
 	{
-		ft_update_player(game, x_to, y_to);
+		ft_update_player(game, x_to, y_to, look);
 		ft_printf("Congrats! You successfully helped Santa! \033[0;32mYOU WIN!!\033[37m\n");
 		ft_free_2darr(game->twod);
 		mlx_close_window(game->mlx);
@@ -103,13 +115,13 @@ void	ft_my_keyhook(mlx_key_data_t keydata, void *param)
 		mlx_close_window(game->mlx);
 	}
 	if ((keydata.key == MLX_KEY_W) || (keydata.key == MLX_KEY_UP))
-		ft_do_move(game, game->p_x, game->p_y - 1);
+		ft_do_move(game, game->p_x, game->p_y - 1, 'W');
 	if ((keydata.key == MLX_KEY_S) || (keydata.key == MLX_KEY_DOWN))
-		ft_do_move(game, game->p_x, game->p_y + 1);
+		ft_do_move(game, game->p_x, game->p_y + 1, 'S');
 	if ((keydata.key == MLX_KEY_A) || (keydata.key == MLX_KEY_LEFT))
-		ft_do_move(game, game->p_x - 1, game->p_y);
+		ft_do_move(game, game->p_x - 1, game->p_y, 'A');
 	if ((keydata.key == MLX_KEY_D) || (keydata.key == MLX_KEY_RIGHT))
-		ft_do_move(game, game->p_x + 1, game->p_y);
+		ft_do_move(game, game->p_x + 1, game->p_y, 'D');
 }
 
 void	ft_initialize_game(t_game *game)
@@ -119,6 +131,10 @@ void	ft_initialize_game(t_game *game)
 	game->twod = ft_split(game->map, '\n');
 	if (!game->twod)
 		ft_error_exit("malloc for split failed.", 1);
+	tmp = mlx_load_png("images/santa_left.png");
+	game->santa_left = mlx_texture_to_image(game->mlx, tmp);
+	tmp = mlx_load_png("images/santa_right.png");
+	game->santa_right = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/santa.png");
 	game->santa = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/slay.png");
@@ -134,6 +150,5 @@ void	ft_initialize_game(t_game *game)
 	tmp = mlx_load_png("images/box_r.png");
 	game->box_r = mlx_texture_to_image(game->mlx, tmp);
 	mlx_delete_texture(tmp);
-	game->step = ft_linelen(game->map) + 1;
 	ft_fill_window(game);
 }
