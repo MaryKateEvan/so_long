@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:02:30 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/03 19:05:03 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/07 23:37:52 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_check_characters(t_game *game)
 		while (tmp[i] != '\n' && tmp[i] != '\0')
 		{
 			if (!(tmp[i] == '0' || tmp[i] == '1' || tmp[i] == 'C' || 
-					tmp[i] == 'E' || tmp[i] == 'P'))
+					tmp[i] == 'E' || tmp[i] == 'P' || tmp[i] == 'G'))
 				ft_error_exit("non acceptable character inside the map.", 0);
 			if (tmp[i] == 'P')
 				game->player_idx = i;

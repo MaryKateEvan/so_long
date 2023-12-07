@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:20:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 19:32:20 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/07 23:44:26 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	ft_fill_window(t_game *game)
 				mlx_image_to_window(game->mlx, game->gifts, x * SIZE, y * SIZE);
 			else if (game->twod[y][x] == 'E')
 				mlx_image_to_window(game->mlx, game->slay, x * SIZE, y * SIZE);
+			else if (game->twod[y][x] == 'G')
+				mlx_image_to_window(game->mlx, game->grinch, x * SIZE, y * SIZE);
 		}
 	}
 }
@@ -83,9 +85,7 @@ void	ft_update_player(t_game *game, int x_to, int y_to, char look)
 void	ft_do_move(t_game *game, int x_to, int y_to, int look)
 {
 	if (game->twod[y_to][x_to] == '0')
-	{
 		ft_update_player(game, x_to, y_to, look);
-	}
 	else if (game->twod[y_to][x_to] == 'C')
 	{
 		game->coins--;
@@ -94,7 +94,15 @@ void	ft_do_move(t_game *game, int x_to, int y_to, int look)
 	else if (game->twod[y_to][x_to] == 'E' && game->coins == 0)
 	{
 		ft_update_player(game, x_to, y_to, look);
-		ft_printf("Congrats! You successfully helped Santa! \033[0;32mYOU WIN!!\033[37m\n");
+		ft_printf("Congrats! You helped Santa collect all the gifts! \033[0;32mYOU WIN!!\033[37m\n");
+		ft_free_2darr(game->twod);
+		mlx_close_window(game->mlx);
+		mlx_terminate(game->mlx);
+		exit(EXIT_SUCCESS);
+	}
+	else if (game->twod[y_to][x_to] == 'G')
+	{
+		ft_printf("Grinch stole Christmas! \033[31mYOU LOST!\033[37m\n");
 		ft_free_2darr(game->twod);
 		mlx_close_window(game->mlx);
 		mlx_terminate(game->mlx);
@@ -149,6 +157,8 @@ void	ft_initialize_game(t_game *game)
 	game->box_l = mlx_texture_to_image(game->mlx, tmp);
 	tmp = mlx_load_png("images/box_r.png");
 	game->box_r = mlx_texture_to_image(game->mlx, tmp);
+	tmp = mlx_load_png("images/grinch.png");
+	game->grinch = mlx_texture_to_image(game->mlx, tmp);
 	mlx_delete_texture(tmp);
 	ft_fill_window(game);
 }
