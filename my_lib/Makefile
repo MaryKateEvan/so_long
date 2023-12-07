@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 15:04:14 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/21 17:35:00 by mevangel         ###   ########.fr        #
+#    Updated: 2023/12/07 15:45:03 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,9 @@ SRCS	:=	ft_isalpha.c \
 			ft_read_line.c \
 			ft_strjoin_gnl.c \
 			ft_strjoin_free_both.c \
-			get_next_line.c
+			get_next_line.c \
+			ft_printf.c \
+			ft_printf_utils.c
 
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)%.o)
 
