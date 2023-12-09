@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:33:36 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 15:41:19 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/09 01:03:42 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4200
+#  define BUFFER_SIZE 420
 # endif
 
 typedef struct s_list
