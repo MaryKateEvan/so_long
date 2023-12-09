@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/08 00:36:38 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/09 00:04:20 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h> //for the open function
-# include <stdio.h> //for the perror function
-# include <stdbool.h>
+// # include <stdio.h> //for the perror function
+// # include <stdbool.h>
 
 # include "my_lib/libft.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
-# define RED "\033[1;31m"
 # define SIZE 84
+// # define POSX game->pos.x
 
-typedef struct s_coords
-{
-	int	y;
-	int	x;
-}	t_coords;
+// typedef struct s_coords
+// {
+// 	int32_t x;
+// 	int32_t y;
+// }	t_coords;
 
 typedef struct s_game
 {
@@ -39,6 +39,8 @@ typedef struct s_game
 	int32_t			width;
 	int32_t			coins;
 	int32_t			player_idx;
+	int32_t			p_arr[2];
+	// t_coords		p_pos;
 	int32_t			p_y;
 	int32_t			p_x;
 	int32_t			exit_idx;
@@ -53,14 +55,19 @@ typedef struct s_game
 	mlx_image_t		*gifts;
 	mlx_image_t		*slay;
 	mlx_image_t		*grinch;
+	mlx_image_t		*grinch2;
+	mlx_image_t		*gifts2;
+	mlx_image_t		*sparks;
 	mlx_image_t		*box_l;
 	mlx_image_t		*box_r;
 	//the "step" to change y axon by 1
-	int32_t				step;
+	int32_t			step;
+	int32_t			tick;
 }	t_game;
 
 void	ft_error_exit(char *perr_msg, int err_code);
-void	ft_check_given_map(int map_fd, t_game *game);
+void	ft_check_characters(t_game *game);
+// void	ft_check_given_map(int map_fd, t_game *game);
 void	ft_initialize_game(t_game *game);
 // void	ft_hook(void *param);
 void	ft_my_keyhook(mlx_key_data_t keydata, void *param);
