@@ -6,7 +6,7 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/11 03:55:16 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:40:02 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,7 @@
 # include "my_lib/libft.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
-# define IMG game->images
 # define PXL 84
-
-typedef struct s_img
-{
-	mlx_image_t	*tree;
-	mlx_image_t	*snow;
-	mlx_image_t	*santa;
-	mlx_image_t	*santa_left;
-	mlx_image_t	*santa_right;
-	mlx_image_t	*santa_back;
-	mlx_image_t	*gifts;
-	mlx_image_t	*slay;
-	mlx_image_t	*grinch;
-	mlx_image_t	*grinch2;
-	mlx_image_t	*gifts2;
-	mlx_image_t	*sparks;
-	mlx_image_t	*box_l;
-	mlx_image_t	*box_r;
-}	t_img;
 
 typedef struct s_game
 {
@@ -52,7 +33,19 @@ typedef struct s_game
 	int32_t		p_x;
 	int32_t		tick;
 	mlx_t		*mlx;
-	t_img		*images;
+	mlx_image_t	*tree;
+	mlx_image_t	*snow;
+	mlx_image_t	*santa;
+	mlx_image_t	*santa_left;
+	mlx_image_t	*santa_right;
+	mlx_image_t	*santa_back;
+	mlx_image_t	*gifts;
+	mlx_image_t	*slay;
+	mlx_image_t	*grinch;
+	mlx_image_t	*grinch2;
+	mlx_image_t	*sparks;
+	mlx_image_t	*box_l;
+	mlx_image_t	*box_r;
 }	t_game;
 
 void	ft_parse_map(t_game *game);
