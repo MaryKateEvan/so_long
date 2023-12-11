@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:33:36 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/09 01:03:42 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:24:30 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 420
+#  define BUFFER_SIZE 100
 # endif
 
 typedef struct s_list
@@ -66,6 +66,8 @@ int		ft_read_line(char **line, int fd);
 char	*ft_strjoin_gnl(char *stash, char *buffer);
 char	*ft_strjoin_free_both(char *s1, char *s2);
 char	*get_next_line(int fd);
+void	ft_error_exit(char *err_msg, int exit_value);
+void	ft_err_exit_fr1_clsfd(char *msg, int exit_val, void *to_free, int fd);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

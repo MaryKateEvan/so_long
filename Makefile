@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+         #
+#    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 15:07:21 by mevangel          #+#    #+#              #
-#    Updated: 2023/11/23 20:46:37 by mevangel         ###   ########.fr        #
+#    Updated: 2023/12/11 03:51:19 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,13 @@ GREEN	=	\033[0;32m
 CYAN	=	\033[0;36m
 WHITE	=	\033[0m
 
-SRC_DIR	=	./srcs/
+SRC_DIR	=	./to_clear/
 OBJ_DIR	=	./objs/
 
 SRC		=	$(SRC_DIR)main.c \
 			$(SRC_DIR)parsing.c \
-			$(SRC_DIR)init_game.c
+			$(SRC_DIR)window.c \
+			$(SRC_DIR)movement.c
 OBJ		=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIB		=	my_lib/my_lib.a
 MLX42	=	MLX42/build/libmlx42.a
@@ -72,4 +73,4 @@ cleanEverything:
 
 re:		fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean cleanmlx cleanEverything re
