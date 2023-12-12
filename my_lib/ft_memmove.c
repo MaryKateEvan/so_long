@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:21:45 by mevangel          #+#    #+#             */
-/*   Updated: 2023/04/13 03:50:37 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:54:50 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			*d++ = *s++;
 		else
 			d[len] = s[len];
-	}	
+	}
 	return (dst);
 }

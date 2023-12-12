@@ -6,7 +6,7 @@
 #    By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 15:07:21 by mevangel          #+#    #+#              #
-#    Updated: 2023/12/11 03:51:19 by mevangel         ###   ########.fr        #
+#    Updated: 2023/12/12 00:07:09 by mevangel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ GREEN	=	\033[0;32m
 CYAN	=	\033[0;36m
 WHITE	=	\033[0m
 
-SRC_DIR	=	./to_clear/
+SRC_DIR	=	./srcs/
 OBJ_DIR	=	./objs/
 
 SRC		=	$(SRC_DIR)main.c \
@@ -42,7 +42,6 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 
 $(MLX42):
 	@if [ ! -d "./MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
-	# @make --silent -C MLX42
 	@cd MLX42 && cmake -B build
 	@cd MLX42 && cmake --build build -j4
 
