@@ -6,14 +6,14 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:24:39 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/11 23:10:10 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:34:13 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include <fcntl.h>
-# include "my_lib/libft.h"
+# include "my_lib/my_lib.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define PXL 84
