@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_exit_fr1.c                                :+:      :+:    :+:   */
+/*   ft_err_exit_fr1_clsfd.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:54:08 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/10 19:15:09 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:30:27 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 void	ft_err_exit_fr1_clsfd(char *msg, int exit_val, void *to_free, int fd)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:58:51 by mevangel          #+#    #+#             */
-/*   Updated: 2023/04/12 19:08:19 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:32:19 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

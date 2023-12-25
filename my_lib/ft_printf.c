@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:17:43 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/07 15:45:44 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:31:42 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 static int	format_specifiers(char type, va_list args)
 {

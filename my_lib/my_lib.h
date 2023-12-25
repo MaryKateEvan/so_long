@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   MY_LIB.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef MY_LIB_H
+# define MY_LIB_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -86,4 +86,4 @@ int		ft_print_number(long int n);
 int		ft_print_hexa(size_t dec, char type);
 int		ft_print_p(void *ptr);
 
-#endif
+#endif //MY_LIB_H

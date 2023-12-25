@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mevangel <mevangel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:31:25 by mevangel          #+#    #+#             */
-/*   Updated: 2023/04/12 17:26:23 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:31:29 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

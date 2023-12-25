@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:47:03 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:12:23 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:31:58 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 int	ft_read_line(char **line, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:04:18 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/18 12:05:27 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:30:53 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 int	ft_linelen(const char *s)
 {

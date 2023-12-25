@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:18:34 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:07:05 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:32:57 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 static char	*ft_collect_data(int fd, char *stash)
 {

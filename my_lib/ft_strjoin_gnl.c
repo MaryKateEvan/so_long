@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:02:10 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:07:52 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:32:16 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 char	*ft_strjoin_gnl(char *stash, char *buffer)
 {

@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:56:12 by mevangel          #+#    #+#             */
-/*   Updated: 2023/10/27 05:20:31 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:32:02 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 static size_t	ft_count_substrings(char *s, char c)
 {

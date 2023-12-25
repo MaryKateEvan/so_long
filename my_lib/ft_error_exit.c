@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:54:08 by mevangel          #+#    #+#             */
-/*   Updated: 2023/12/10 18:54:28 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:30:30 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 void	ft_error_exit(char *err_msg, int exit_value)
 {

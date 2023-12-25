@@ -6,11 +6,11 @@
 /*   By: mevangel <mevangel@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:46:47 by mevangel          #+#    #+#             */
-/*   Updated: 2023/11/16 11:09:12 by mevangel         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:32:06 by mevangel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "my_lib.h"
 
 char	*ft_strchr(const char *s, int c)
 {
